@@ -8,6 +8,7 @@ This backend app is being deployed as micro service for all the different operat
 
 # Calculator App Structure
 
+```plaintext
 Calculator-App/
 ├── main/
 │   ├── Dockerfile
@@ -31,4 +32,5 @@ Calculator-App/
 │       ├── requirements.txt
 │       └── substraction_service.py
 └── docker-compose.yml
+```
 
