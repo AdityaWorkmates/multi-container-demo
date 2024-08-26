@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  addition-service:
+    build:
+      context: ./services/addition
+    ports:
+      - "5001:5001"
+    networks:
+      - app-network
+
+  substraction-service:
+    build:
+      context: ./services/substraction
+    ports:
+      - "5002:5002"
+    networks:
+      - app-network
+
+  multiplication-service:
+    build:
+      context: ./services/multiplication
+    ports:
+      - "5003:5003"
+    networks:
+      - app-network
+
+  division-service:
+    build:
+      context: ./services/division
+    ports:
+      - "5004:5004"
+    networks:
+      - app-network
+
+  main-app:
+    build:
+      context: ./main
+    ports:
+      - "5000:5000"
+    depends_on:
+      - addition-service
+      - substraction-service
+      - multiplication-service
+      - division-service
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
